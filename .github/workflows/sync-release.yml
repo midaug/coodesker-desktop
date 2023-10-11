@@ -1,0 +1,22 @@
+# This is a basic workflow to help you get started with Actions
+
+name: sync-release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:   
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - uses: mirror-release-action@v1
+        with:
+          repository: coodesker/coodesker-desktop
+          tag: ${{ github.event.inputs.tag }}
+          patterns: C*.exe
