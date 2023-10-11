@@ -19,10 +19,7 @@ jobs:
           persist-credentials: false   
       - name: sync release
         uses: kanzihuang/mirror-release-action@v1
-        run: |
-          git config --local user.email "days0814@gmail.com"
-          git config --local user.name "midaug"
         with:
           repository: coodesker/coodesker-desktop
-          tag: ${{ github.event.inputs.tag }}
+          tag: v1.0.4.1
           patterns: C*.exe
