@@ -18,7 +18,7 @@ jobs:
         with:
           persist-credentials: false     
       - name: sync release
-        uses: mirror-release-action@v1
+        uses: kanzihuang/mirror-release-action@v1
         with:
           repository: coodesker/coodesker-desktop
           tag: ${{ github.event.inputs.tag }}
