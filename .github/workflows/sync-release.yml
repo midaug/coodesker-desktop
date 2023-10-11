@@ -17,13 +17,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false   
-      - name: set git config
-        id : set_config
+      - name: sync release
+        uses: kanzihuang/mirror-release-action@v1
         run: |
           git config --local user.email "days0814@gmail.com"
           git config --local user.name "midaug"
-      - name: sync release
-        uses: kanzihuang/mirror-release-action@v1
         with:
           repository: coodesker/coodesker-desktop
           tag: ${{ github.event.inputs.tag }}
